@@ -1,5 +1,5 @@
 ---
-title: "Checkbox Component"
+title: "Checkbox"
 description: "Interactive checkbox for selecting one or multiple items from a list"
 ---
 
@@ -8,12 +8,13 @@ description: "Interactive checkbox for selecting one or multiple items from a li
 Checkboxes allow users to select one or multiple items from a list of individual items. They are designed for multiple choices, where each checkbox works independently from others in the list.
 
 <Frame>
-<img src="https://www.figma.com/design/PbVpP4WeWhp1g8aqpKYAed/SAP-LeanIX-Web-UI-Kit?node-id=1546-12258" alt="Checkbox component variants showing selected, unselected, and mixed states" />
+  ![Checkbox component variants showing selected, unselected, and mixed states](https://www.figma.com/design/PbVpP4WeWhp1g8aqpKYAed/SAP-LeanIX-Web-UI-Kit?node-id=1546-12258)
 </Frame>
 
 ## When to use
 
 Use checkboxes when you need to:
+
 - **Enable multiple selections** from a list of options (0, 1, or many items)
 - **Provide independent choices** where selections don't affect other options
 - **Toggle settings** on and off in forms or preference panels
@@ -21,7 +22,7 @@ Use checkboxes when you need to:
 - **Filter content** by allowing users to select multiple filter criteria
 
 <Tip>
-Checkboxes work independently—checking one box doesn't affect any other selections in the list. For mutually exclusive options, use radio buttons instead.
+  Checkboxes work independently—checking one box doesn't affect any other selections in the list. For mutually exclusive options, use radio buttons instead.
 </Tip>
 
 ## tl;dr
@@ -37,7 +38,7 @@ When there are multiple items to select in a list, users can select zero, one, o
 Use a checkbox group when the user can make one or many selections from 2-8 options.
 
 <Warning>
-For lists with more than 8 options, consider using a different pattern like a multi-select dropdown or filter panel.
+  For lists with more than 8 options, consider using a different pattern like a multi-select dropdown or filter panel.
 </Warning>
 
 ## Variants
@@ -47,33 +48,31 @@ For lists with more than 8 options, consider using a different pattern like a mu
 The Checkbox features three states that provide clear visual feedback for user selections.
 
 <Tabs>
-<Tab title="Selected">
-  The selected state signifies a positive choice. The checkbox displays a checkmark icon with the primary color background, clearly indicating the option has been chosen.
-  
-  **Visual indicator**: Blue background with white checkmark
-  
-  **When to use**: When an option is actively selected by the user
-</Tab>
+  <Tab title="Selected">
+    The selected state signifies a positive choice. The checkbox displays a checkmark icon with the primary color background, clearly indicating the option has been chosen.
 
-<Tab title="Unselected">
-  The unselected state indicates the option is not chosen. The checkbox appears as an empty box with a border, ready to be selected.
-  
-  **Visual indicator**: White background with gray border
-  
-  **When to use**: Default state for options that haven't been selected
-</Tab>
+    **Visual indicator**: Blue background with white checkmark
 
-<Tab title="Mixed (Indeterminate)">
-  The mixed state is used for checkboxes representing a combination of selected and unselected choices. This offers a versatile visual representation for parent checkboxes when only some child items are selected.
-  
-  **Visual indicator**: Blue background with minus/dash icon
-  
-  **When to use**: Parent checkboxes with partial child selection
-</Tab>
+    **When to use**: When an option is actively selected by the user
+  </Tab>
+  <Tab title="Unselected">
+    The unselected state indicates the option is not chosen. The checkbox appears as an empty box with a border, ready to be selected.
+
+    **Visual indicator**: White background with gray border
+
+    **When to use**: Default state for options that haven't been selected
+  </Tab>
+  <Tab title="Mixed (Indeterminate)">
+    The mixed state is used for checkboxes representing a combination of selected and unselected choices. This offers a versatile visual representation for parent checkboxes when only some child items are selected.
+
+    **Visual indicator**: Blue background with minus/dash icon
+
+    **When to use**: Parent checkboxes with partial child selection
+  </Tab>
 </Tabs>
 
 <Info>
-The indeterminate (mixed) state is particularly useful for hierarchical lists where a parent checkbox controls multiple child checkboxes.
+  The indeterminate (mixed) state is particularly useful for hierarchical lists where a parent checkbox controls multiple child checkboxes.
 </Info>
 
 ## Usage guidelines
@@ -83,10 +82,11 @@ The indeterminate (mixed) state is particularly useful for hierarchical lists wh
 Standalone checkboxes should be used in situations where the context is clear without an associated text label.
 
 <Check>
-**Use standalone checkboxes when** the checkbox is connected to other controls inside a panel and the context is obvious from the surrounding interface.
+  **Use standalone checkboxes when** the checkbox is connected to other controls inside a panel and the context is obvious from the surrounding interface.
 </Check>
 
 **Example use cases:**
+
 - Table row selection in the first column
 - Bulk selection controls in toolbars
 - Settings toggles with clear nearby labels
@@ -94,26 +94,26 @@ Standalone checkboxes should be used in situations where the context is clear wi
 ### Checkbox or radio button?
 
 <Warning>
-Do not use checkboxes for single-select options. Checkboxes and radio buttons cannot be used interchangeably.
+  Do not use checkboxes for single-select options. Checkboxes and radio buttons cannot be used interchangeably.
 </Warning>
 
 <CardGroup cols={2}>
-<Card title="Use Checkboxes" icon="square-check">
-  - Multiple selections allowed
-  - Independent choices
-  - Select 0, 1, or many options
-  - Non-mutually exclusive options
-</Card>
-
-<Card title="Use Radio Buttons" icon="circle-dot">
-  - Single selection only
-  - Mutually exclusive choices
-  - Must select exactly one option
-  - One option from a defined list
-</Card>
+  <Card title="Use Checkboxes" icon="square-check">
+    - Multiple selections allowed
+    - Independent choices
+    - Select 0, 1, or many options
+    - Non-mutually exclusive options
+  </Card>
+  <Card title="Use Radio Buttons" icon="circle-dot">
+    - Single selection only
+    - Mutually exclusive choices
+    - Must select exactly one option
+    - One option from a defined list
+  </Card>
 </CardGroup>
 
 **Decision flowchart:**
+
 1. Can users select more than one option? → **Yes** = Checkbox
 2. Are options mutually exclusive? → **Yes** = Radio button
 3. Can users deselect all options? → **Yes** = Checkbox
@@ -121,29 +121,25 @@ Do not use checkboxes for single-select options. Checkboxes and radio buttons ca
 ## Best practices
 
 <Steps>
-<Step title="Use clear, concise labels">
-  Ensure checkbox labels clearly describe what will happen when the option is selected. Keep labels short and action-oriented.
-  
-  <Check>
-  Good: "Send me email notifications"
-  </Check>
-  
-  <Warning>
-  Avoid: "Notifications" (too vague)
-  </Warning>
-</Step>
+  <Step title="Use clear, concise labels">
+    Ensure checkbox labels clearly describe what will happen when the option is selected. Keep labels short and action-oriented.
 
-<Step title="Maintain consistent selection behavior">
-  All checkboxes in a group should work independently. Selecting one checkbox should never automatically select or deselect another (except in parent-child relationships).
-</Step>
-
-<Step title="Provide feedback for actions">
-  Use the checkbox state to provide immediate visual feedback. Don't rely on external confirmations for simple checkbox interactions.
-</Step>
-
-<Step title="Group related options">
-  When presenting multiple checkboxes, group related options together with clear section headings to improve scannability.
-</Step>
+    <Check>
+      Good: "Send me email notifications"
+    </Check>
+    <Warning>
+      Avoid: "Notifications" (too vague)
+    </Warning>
+  </Step>
+  <Step title="Maintain consistent selection behavior">
+    All checkboxes in a group should work independently. Selecting one checkbox should never automatically select or deselect another (except in parent-child relationships).
+  </Step>
+  <Step title="Provide feedback for actions">
+    Use the checkbox state to provide immediate visual feedback. Don't rely on external confirmations for simple checkbox interactions.
+  </Step>
+  <Step title="Group related options">
+    When presenting multiple checkboxes, group related options together with clear section headings to improve scannability.
+  </Step>
 </Steps>
 
 ## Common use cases
@@ -153,13 +149,14 @@ Do not use checkboxes for single-select options. Checkboxes and radio buttons ca
 Use checkboxes in forms to collect multiple preferences or consent options.
 
 **Examples:**
+
 - Newsletter subscription preferences
 - Feature opt-ins
 - Privacy settings
 - Marketing consent checkboxes
 
 <Tip>
-Always make it clear what users are agreeing to when they check a box, especially for legal or privacy-related options.
+  Always make it clear what users are agreeing to when they check a box, especially for legal or privacy-related options.
 </Tip>
 
 ### Filters
@@ -167,6 +164,7 @@ Always make it clear what users are agreeing to when they check a box, especiall
 For selecting and applying multiple elements of the same filter category.
 
 **Examples:**
+
 - Product category filters in e-commerce
 - Date range selectors
 - Status filters (Active, Pending, Completed)
@@ -179,12 +177,13 @@ For selecting and applying multiple elements of the same filter category.
 Using a checkbox to enable a button to complete an action.
 
 **Implementation pattern:**
+
 1. Present terms and conditions or agreement text
 2. Require checkbox selection to enable submit button
 3. Disable action button until checkbox is checked
 
 <Warning>
-Ensure checkbox labels for legal agreements are clear and specific. Avoid generic labels like "I agree."
+  Ensure checkbox labels for legal agreements are clear and specific. Avoid generic labels like "I agree."
 </Warning>
 
 ### Lists with sub-selections
@@ -192,6 +191,7 @@ Ensure checkbox labels for legal agreements are clear and specific. Avoid generi
 They are used when there is a parent and child relationship. You can use a parent checkbox to make a bulk selection of all list items. Unchecking the parent deselects all of the list items.
 
 **How it works:**
+
 - **All children selected** → Parent shows selected state
 - **No children selected** → Parent shows unselected state
 - **Some children selected** → Parent shows mixed (indeterminate) state
@@ -200,7 +200,7 @@ They are used when there is a parent and child relationship. You can use a paren
 Alternatively, you can select children individually when the parent is not selected, which is where the indeterminate state comes into play.
 
 <Tip>
-The indeterminate state provides crucial visual feedback in hierarchical selections, helping users understand the current selection status at a glance.
+  The indeterminate state provides crucial visual feedback in hierarchical selections, helping users understand the current selection status at a glance.
 </Tip>
 
 ## Accessibility considerations
@@ -209,7 +209,7 @@ The indeterminate state provides crucial visual feedback in hierarchical selecti
 - **Focus indicators**: Provide clear focus states for keyboard users
 - **Touch targets**: Maintain minimum 44x44px touch target for mobile
 - **Label association**: Always associate labels with checkboxes using proper HTML structure
-- **Screen reader support**: 
+- **Screen reader support**:
   - Announce checkbox state (checked/unchecked/mixed)
   - Provide clear, descriptive labels
   - Group related checkboxes with fieldset and legend elements
@@ -217,104 +217,100 @@ The indeterminate state provides crucial visual feedback in hierarchical selecti
 - **ARIA attributes**: Use `aria-checked` with "true", "false", or "mixed" values
 
 <Check>
-Test with keyboard navigation and screen readers to ensure full accessibility compliance.
+  Test with keyboard navigation and screen readers to ensure full accessibility compliance.
 </Check>
 
 ## Writing effective checkbox labels
 
 <CardGroup cols={1}>
-<Card title="✓ Be specific and clear" icon="check">
-  Labels should clearly state what happens when the checkbox is selected.
-  
-  **Good**: "Send me weekly email updates"
-  
-  **Bad**: "Updates"
-</Card>
+  <Card title="✓ Be specific and clear" icon="check">
+    Labels should clearly state what happens when the checkbox is selected.
 
-<Card title="✓ Use positive phrasing" icon="check">
-  Frame labels in positive terms rather than negative.
-  
-  **Good**: "Show advanced options"
-  
-  **Avoid**: "Don't hide advanced options"
-</Card>
+    **Good**: "Send me weekly email updates"
 
-<Card title="✓ Keep labels concise" icon="check">
-  Aim for labels that are scannable and easy to understand at a glance.
-  
-  **Target**: 1-5 words per label when possible
-</Card>
+    **Bad**: "Updates"
+  </Card>
+  <Card title="✓ Use positive phrasing" icon="check">
+    Frame labels in positive terms rather than negative.
 
-<Card title="✓ Provide context when needed" icon="check">
-  If the checkbox choice isn't immediately clear, add helper text below the label.
-  
-  **Example**: 
-  - Label: "Enable two-factor authentication"
-  - Helper: "Adds an extra layer of security to your account"
-</Card>
+    **Good**: "Show advanced options"
+
+    **Avoid**: "Don't hide advanced options"
+  </Card>
+  <Card title="✓ Keep labels concise" icon="check">
+    Aim for labels that are scannable and easy to understand at a glance.
+
+    **Target**: 1-5 words per label when possible
+  </Card>
+  <Card title="✓ Provide context when needed" icon="check">
+    If the checkbox choice isn't immediately clear, add helper text below the label.
+
+    **Example**:
+
+    - Label: "Enable two-factor authentication"
+    - Helper: "Adds an extra layer of security to your account"
+  </Card>
 </CardGroup>
 
 ## Design specifications
 
 <AccordionGroup>
-<Accordion title="Sizing and spacing">
-  - **Checkbox size**: 16x16px
-  - **Touch target**: Minimum 44x44px (includes label)
-  - **Spacing between checkbox and label**: 8px
-  - **Vertical spacing between checkboxes**: 8-12px
-  - **Group spacing**: 20-24px between checkbox groups
-</Accordion>
-
-<Accordion title="Visual styling">
-  - **Border**: 1px solid #99A5BB (unselected)
-  - **Background**: #0070F2 (selected), #FFFFFF (unselected)
-  - **Icon color**: #FFFFFF (on selected background)
-  - **Border radius**: 2px
-  - **Label font**: 14px, Regular weight
-  - **Label color**: #2A303D
-</Accordion>
-
-<Accordion title="Interactive states">
-  - **Default**: Standard appearance
-  - **Hover**: Visual feedback on cursor interaction
-  - **Focus**: Clear focus ring for keyboard navigation
-  - **Active**: Pressed state during click
-  - **Disabled**: Grayed out, non-interactive (use sparingly)
-</Accordion>
+  <Accordion title="Sizing and spacing">
+    - **Checkbox size**: 16x16px
+    - **Touch target**: Minimum 44x44px (includes label)
+    - **Spacing between checkbox and label**: 8px
+    - **Vertical spacing between checkboxes**: 8-12px
+    - **Group spacing**: 20-24px between checkbox groups
+  </Accordion>
+  <Accordion title="Visual styling">
+    - **Border**: 1px solid #99A5BB (unselected)
+    - **Background**: #0070F2 (selected), #FFFFFF (unselected)
+    - **Icon color**: #FFFFFF (on selected background)
+    - **Border radius**: 2px
+    - **Label font**: 14px, Regular weight
+    - **Label color**: #2A303D
+  </Accordion>
+  <Accordion title="Interactive states">
+    - **Default**: Standard appearance
+    - **Hover**: Visual feedback on cursor interaction
+    - **Focus**: Clear focus ring for keyboard navigation
+    - **Active**: Pressed state during click
+    - **Disabled**: Grayed out, non-interactive (use sparingly)
+  </Accordion>
 </AccordionGroup>
 
 ## Best practices summary
 
 <Check>
-**Do** use checkboxes for multiple, independent selections
+  **Do** use checkboxes for multiple, independent selections
 </Check>
 
 <Check>
-**Do** provide clear, specific labels for each option
+  **Do** provide clear, specific labels for each option
 </Check>
 
 <Check>
-**Do** use the indeterminate state for parent checkboxes with partial selection
+  **Do** use the indeterminate state for parent checkboxes with partial selection
 </Check>
 
 <Check>
-**Do** group related checkboxes with clear section headers
+  **Do** group related checkboxes with clear section headers
 </Check>
 
 <Warning>
-**Don't** use checkboxes for mutually exclusive options (use radio buttons)
+  **Don't** use checkboxes for mutually exclusive options (use radio buttons)
 </Warning>
 
 <Warning>
-**Don't** nest checkboxes more than 2 levels deep
+  **Don't** nest checkboxes more than 2 levels deep
 </Warning>
 
 <Warning>
-**Don't** use checkboxes when there are more than 8 options in a single group
+  **Don't** use checkboxes when there are more than 8 options in a single group
 </Warning>
 
 <Warning>
-**Don't** make checkbox selection cause unexpected page changes or navigation
+  **Don't** make checkbox selection cause unexpected page changes or navigation
 </Warning>
 
 ## Related components
@@ -326,12 +322,13 @@ Test with keyboard navigation and screen readers to ensure full accessibility co
 ## Implementation notes
 
 <Info>
-For implementation details, code examples, and framework-specific guidance, refer to your design system's component library documentation.
+  For implementation details, code examples, and framework-specific guidance, refer to your design system's component library documentation.
 </Info>
 
 ### States to implement
 
 When implementing the checkbox component, ensure you support all three states:
+
 1. **Unselected** (default): `checked={false}`
 2. **Selected**: `checked={true}`
 3. **Indeterminate**: `indeterminate={true}` (typically set via JavaScript)
@@ -353,6 +350,5 @@ handleCheckboxChange(event) {
 - Component status: Stable
 
 <Note>
-This component is part of the SAP LeanIX Web UI Kit design system and follows established patterns for enterprise applications.
+  This component is part of the SAP LeanIX Web UI Kit design system and follows established patterns for enterprise applications.
 </Note>
-

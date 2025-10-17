@@ -1,5 +1,5 @@
 ---
-title: "Avatar Component"
+title: "Avatar"
 description: "Visual representation of users through profile pictures or initials"
 ---
 
@@ -8,12 +8,13 @@ description: "Visual representation of users through profile pictures or initial
 The Avatar component adds a personalized touch to user interfaces by visually representing individuals within the system. Whether showcasing a user's profile picture or displaying their initials when an image is unavailable, Avatars enhance the user experience with a recognizable and friendly visual element.
 
 <Frame>
-<img src="https://www.figma.com/design/PbVpP4WeWhp1g8aqpKYAed/SAP-LeanIX-Web-UI-Kit?node-id=1487-11096" alt="Avatar component showcasing different sizes and display options" />
+  ![Avatar component showcasing different sizes and display options](https://www.figma.com/design/PbVpP4WeWhp1g8aqpKYAed/SAP-LeanIX-Web-UI-Kit?node-id=1487-11096)
 </Frame>
 
 ## When to use
 
 Use avatars to:
+
 - **Identify users** in collaborative interfaces and comment threads
 - **Personalize navigation** by showing the current user's profile
 - **Represent members** in team lists, organizational charts, or participant rosters
@@ -21,7 +22,7 @@ Use avatars to:
 - **Show presence** in real-time collaboration features
 
 <Tip>
-Avatars create a sense of connection and personalization, making interfaces feel more human and relatable.
+  Avatars create a sense of connection and personalization, making interfaces feel more human and relatable.
 </Tip>
 
 ## Key features
@@ -31,13 +32,14 @@ Avatars create a sense of connection and personalization, making interfaces feel
 Avatars seamlessly integrate user profile pictures, providing a face to the name and fostering a more personalized connection within the application.
 
 **Benefits:**
+
 - Increases user recognition and trust
 - Creates stronger emotional connections
 - Makes interfaces feel more human and approachable
 - Helps users quickly identify content creators or participants
 
 <Check>
-Profile pictures significantly improve user engagement and make interfaces feel more personal and trustworthy.
+  Profile pictures significantly improve user engagement and make interfaces feel more personal and trustworthy.
 </Check>
 
 ### Initials Display
@@ -45,13 +47,14 @@ Profile pictures significantly improve user engagement and make interfaces feel 
 In instances where a user hasn't uploaded a profile picture, the Avatar component intelligently generates and displays the user's initials. This ensures a consistent and identifiable representation for every user.
 
 **How it works:**
+
 - Extracts first letter of first name and last name
 - Displays initials in a colored circle
 - Maintains visual consistency across the interface
 - Provides fallback when images fail to load
 
 <Info>
-The initials fallback ensures every user has a unique, identifiable avatar even without uploading a photo.
+  The initials fallback ensures every user has a unique, identifiable avatar even without uploading a photo.
 </Info>
 
 ### Variety of Sizes
@@ -59,59 +62,60 @@ The initials fallback ensures every user has a unique, identifiable avatar even 
 Avatars are designed to be flexible, offering various size options to accommodate different layout requirements. Whether it's a small thumbnail in a comment section or a larger display in a user profile, our Avatar component scales effortlessly.
 
 <Tabs>
-<Tab title="Extra Small (XS)">
-  **Size**: 16x16px or 20x20px
-  
-  **Use cases**:
-  - Inline mentions in text
-  - Dense data tables
-  - Compact lists with minimal spacing
-  - Mobile interfaces with space constraints
-</Tab>
+  <Tab title="Extra Small (XS)">
+    **Size**: 16x16px or 20x20px
 
-<Tab title="Small (S)">
-  **Size**: 24x24px or 28x28px
-  
-  **Use cases**:
-  - Comment sections
-  - Activity feeds
-  - Navigation menus
-  - Notification lists
-</Tab>
+    **Use cases**:
 
-<Tab title="Medium (M)">
-  **Size**: 32x32px or 40x40px
-  
-  **Use cases**:
-  - User cards
-  - List items
-  - Chat interfaces
-  - Collaboration indicators
-  
-  <Tip>
-  Medium size is the most commonly used and provides good balance between visibility and space efficiency.
-  </Tip>
-</Tab>
+    - Inline mentions in text
+    - Dense data tables
+    - Compact lists with minimal spacing
+    - Mobile interfaces with space constraints
+  </Tab>
+  <Tab title="Small (S)">
+    **Size**: 24x24px or 28x28px
 
-<Tab title="Large (L)">
-  **Size**: 48x48px or 56x56px
-  
-  **Use cases**:
-  - Profile headers
-  - User settings pages
-  - Team member directories
-  - Featured contributors
-</Tab>
+    **Use cases**:
 
-<Tab title="Extra Large (XL)">
-  **Size**: 64x64px or larger
-  
-  **Use cases**:
-  - Full profile pages
-  - Account settings
-  - Welcome screens
-  - User onboarding flows
-</Tab>
+    - Comment sections
+    - Activity feeds
+    - Navigation menus
+    - Notification lists
+  </Tab>
+  <Tab title="Medium (M)">
+    **Size**: 32x32px or 40x40px
+
+    **Use cases**:
+
+    - User cards
+    - List items
+    - Chat interfaces
+    - Collaboration indicators
+
+    <Tip>
+      Medium size is the most commonly used and provides good balance between visibility and space efficiency.
+    </Tip>
+  </Tab>
+  <Tab title="Large (L)">
+    **Size**: 48x48px or 56x56px
+
+    **Use cases**:
+
+    - Profile headers
+    - User settings pages
+    - Team member directories
+    - Featured contributors
+  </Tab>
+  <Tab title="Extra Large (XL)">
+    **Size**: 64x64px or larger
+
+    **Use cases**:
+
+    - Full profile pages
+    - Account settings
+    - Welcome screens
+    - User onboarding flows
+  </Tab>
 </Tabs>
 
 ### Customization Options
@@ -119,6 +123,7 @@ Avatars are designed to be flexible, offering various size options to accommodat
 Developers and designers have the flexibility to customize the appearance of avatars, allowing for alignment with brand aesthetics. This includes color schemes, borders, and other stylistic elements.
 
 **Customization possibilities:**
+
 - **Background colors**: Assign unique colors based on user attributes
 - **Border styles**: Add borders to indicate status or highlight active users
 - **Shapes**: Support circular (default) or rounded square variants
@@ -126,7 +131,7 @@ Developers and designers have the flexibility to customize the appearance of ava
 - **Shadows**: Apply subtle shadows for depth and visual hierarchy
 
 <Warning>
-While customization is flexible, maintain consistency in avatar styles across your application to avoid confusing users.
+  While customization is flexible, maintain consistency in avatar styles across your application to avoid confusing users.
 </Warning>
 
 ### Responsive Design
@@ -134,6 +139,7 @@ While customization is flexible, maintain consistency in avatar styles across yo
 Avatars are responsive and adapt seamlessly to different screen sizes and resolutions, ensuring a consistent and visually pleasing experience across various devices.
 
 **Responsive behavior:**
+
 - Scales proportionally on different screen densities
 - Maintains aspect ratio across breakpoints
 - Optimizes image loading based on display size
@@ -146,17 +152,16 @@ Avatars are responsive and adapt seamlessly to different screen sizes and resolu
 Display larger avatars in profile headers, account settings, and user detail pages.
 
 <CardGroup cols={2}>
-<Card title="Profile Header" icon="user">
-  Use large or extra-large avatars at the top of profile pages to establish user identity immediately.
-  
-  **Recommended size**: 64x64px or larger
-</Card>
+  <Card title="Profile Header" icon="user">
+    Use large or extra-large avatars at the top of profile pages to establish user identity immediately.
 
-<Card title="Account Settings" icon="gear">
-  Show current user's avatar with upload/change functionality in settings interfaces.
-  
-  **Recommended size**: 48x48px to 64x64px
-</Card>
+    **Recommended size**: 64x64px or larger
+  </Card>
+  <Card title="Account Settings" icon="gear">
+    Show current user's avatar with upload/change functionality in settings interfaces.
+
+    **Recommended size**: 48x48px to 64x64px
+  </Card>
 </CardGroup>
 
 ### Navigation and headers
@@ -164,6 +169,7 @@ Display larger avatars in profile headers, account settings, and user detail pag
 Include user avatars in application headers or navigation areas to personalize the interface.
 
 **Best practices:**
+
 - Place in top-right corner for consistency with common patterns
 - Include dropdown menu triggered by clicking the avatar
 - Show online/offline status with a small badge indicator
@@ -174,6 +180,7 @@ Include user avatars in application headers or navigation areas to personalize t
 Use small avatars to identify users in lists, tables, or data grids.
 
 **Implementation tips:**
+
 - Keep avatars small (24-32px) to avoid overwhelming the layout
 - Align avatars consistently (usually left-aligned)
 - Include user name as text alongside the avatar
@@ -184,6 +191,7 @@ Use small avatars to identify users in lists, tables, or data grids.
 Display avatars next to user-generated content like comments, posts, or activities.
 
 **Pattern:**
+
 ```
 [Avatar] [Username]
          [Content/Comment]
@@ -197,10 +205,11 @@ Display avatars next to user-generated content like comments, posts, or activiti
 Show who is currently viewing, editing, or has access to shared resources.
 
 <Tip>
-Use stacked or overlapping avatars to show multiple collaborators without taking too much space.
+  Use stacked or overlapping avatars to show multiple collaborators without taking too much space.
 </Tip>
 
 **Examples:**
+
 - Real-time document editors (Google Docs style)
 - Active viewers in dashboards
 - Team members with access to a resource
@@ -211,8 +220,9 @@ Use stacked or overlapping avatars to show multiple collaborators without taking
 Create visual rosters showing all team members or project participants.
 
 **Grid layouts work well for:**
+
 - Team pages
-- Department directories  
+- Department directories
 - Project member lists
 - Organizational charts
 
@@ -221,27 +231,24 @@ Create visual rosters showing all team members or project participants.
 When displaying multiple users, use avatar groups with proper stacking and overflow handling.
 
 <Steps>
-<Step title="Stack avatars with overlap">
-  Overlap avatars slightly (typically 8-12px) to create a compact group while maintaining visibility.
-  
-  <Check>
-  Maintain consistent z-index ordering (left to right or most recent on top)
-  </Check>
-</Step>
+  <Step title="Stack avatars with overlap">
+    Overlap avatars slightly (typically 8-12px) to create a compact group while maintaining visibility.
 
-<Step title="Limit visible avatars">
-  Show 3-5 avatars maximum, then display overflow count (e.g., "+5 more")
-  
-  **Example**: Show first 4 avatars + "+12" indicator
-</Step>
+    <Check>
+      Maintain consistent z-index ordering (left to right or most recent on top)
+    </Check>
+  </Step>
+  <Step title="Limit visible avatars">
+    Show 3-5 avatars maximum, then display overflow count (e.g., "+5 more")
 
-<Step title="Provide tooltips">
-  On hover, show names of users in the stack for accessibility and clarity.
-</Step>
-
-<Step title="Handle interactions">
-  Clicking the group should reveal all members in a modal or expanded view.
-</Step>
+    **Example**: Show first 4 avatars + "+12" indicator
+  </Step>
+  <Step title="Provide tooltips">
+    On hover, show names of users in the stack for accessibility and clarity.
+  </Step>
+  <Step title="Handle interactions">
+    Clicking the group should reveal all members in a modal or expanded view.
+  </Step>
 </Steps>
 
 ## Status indicators and badges
@@ -249,54 +256,55 @@ When displaying multiple users, use avatar groups with proper stacking and overf
 Enhance avatars with status badges to convey additional information.
 
 <AccordionGroup>
-<Accordion title="Online/Offline Status">
-  Add a small colored dot (typically 8-12px) to indicate user presence:
-  - **Green**: Online/Active
-  - **Yellow/Orange**: Away/Idle  
-  - **Red**: Busy/Do Not Disturb
-  - **Gray**: Offline
-  
-  **Position**: Bottom-right corner of the avatar
-</Accordion>
+  <Accordion title="Online/Offline Status">
+    Add a small colored dot (typically 8-12px) to indicate user presence:
 
-<Accordion title="Role Badges">
-  Display user roles or permissions with icon badges:
-  - **Crown**: Admin or Owner
-  - **Star**: Premium or Featured user
-  - **Shield**: Moderator
-  - **Check**: Verified user
-  
-  **Position**: Top-right or bottom-right corner
-</Accordion>
+    - **Green**: Online/Active
+    - **Yellow/Orange**: Away/Idle
+    - **Red**: Busy/Do Not Disturb
+    - **Gray**: Offline
 
-<Accordion title="Notification Counts">
-  Show unread message counts or pending actions:
-  - Small circular badge with number
-  - Red background for attention
-  - Position at top-right corner
-  
-  <Warning>
-  Don't combine too many badges on a single avatar—limit to one or two for clarity.
-  </Warning>
-</Accordion>
+    **Position**: Bottom-right corner of the avatar
+  </Accordion>
+  <Accordion title="Role Badges">
+    Display user roles or permissions with icon badges:
+
+    - **Crown**: Admin or Owner
+    - **Star**: Premium or Featured user
+    - **Shield**: Moderator
+    - **Check**: Verified user
+
+    **Position**: Top-right or bottom-right corner
+  </Accordion>
+  <Accordion title="Notification Counts">
+    Show unread message counts or pending actions:
+
+    - Small circular badge with number
+    - Red background for attention
+    - Position at top-right corner
+
+    <Warning>
+      Don't combine too many badges on a single avatar—limit to one or two for clarity.
+    </Warning>
+  </Accordion>
 </AccordionGroup>
 
 ## Accessibility considerations
 
 <Check>
-**Always provide alternative text** describing the user (e.g., "Profile picture of Jane Doe")
+  **Always provide alternative text** describing the user (e.g., "Profile picture of Jane Doe")
 </Check>
 
 <Check>
-**Ensure sufficient color contrast** between initials and background (minimum 4.5:1 ratio)
+  **Ensure sufficient color contrast** between initials and background (minimum 4.5:1 ratio)
 </Check>
 
 <Check>
-**Make avatars keyboard accessible** when they trigger actions or navigation
+  **Make avatars keyboard accessible** when they trigger actions or navigation
 </Check>
 
 <Check>
-**Announce status changes** to screen readers when presence indicators update
+  **Announce status changes** to screen readers when presence indicators update
 </Check>
 
 ### Implementation guidelines
@@ -309,7 +317,7 @@ Enhance avatars with status badges to convey additional information.
 - Test with screen readers to verify proper announcements
 
 <Tip>
-For initials-based avatars, screen readers should announce the full name, not just the initials.
+  For initials-based avatars, screen readers should announce the full name, not just the initials.
 </Tip>
 
 ## Best practices
@@ -317,44 +325,40 @@ For initials-based avatars, screen readers should announce the full name, not ju
 ### Image optimization
 
 <CardGroup cols={1}>
-<Card title="✓ Use appropriate image formats" icon="image">
-  Prefer WebP with JPEG fallback for photos. Use SVG for icon-based avatars.
-</Card>
-
-<Card title="✓ Implement lazy loading" icon="rocket">
-  Load avatar images only when they enter the viewport, especially in long lists.
-</Card>
-
-<Card title="✓ Provide multiple resolutions" icon="layer-group">
-  Serve different image sizes based on display context and device pixel ratio.
-</Card>
-
-<Card title="✓ Set width and height attributes" icon="ruler">
-  Prevent layout shift by specifying dimensions before images load.
-</Card>
+  <Card title="✓ Use appropriate image formats" icon="image">
+    Prefer WebP with JPEG fallback for photos. Use SVG for icon-based avatars.
+  </Card>
+  <Card title="✓ Implement lazy loading" icon="rocket">
+    Load avatar images only when they enter the viewport, especially in long lists.
+  </Card>
+  <Card title="✓ Provide multiple resolutions" icon="layer-group">
+    Serve different image sizes based on display context and device pixel ratio.
+  </Card>
+  <Card title="✓ Set width and height attributes" icon="ruler">
+    Prevent layout shift by specifying dimensions before images load.
+  </Card>
 </CardGroup>
 
 ### Initials generation
 
 <Steps>
-<Step title="Extract meaningful initials">
-  Use first letter of first and last name. If only one name, use first two letters.
-  
-  **Examples**:
-  - "Jane Doe" → "JD"
-  - "Madonna" → "MA"
-  - "李明 (Li Ming)" → "LM"
-</Step>
+  <Step title="Extract meaningful initials">
+    Use first letter of first and last name. If only one name, use first two letters.
 
-<Step title="Handle edge cases">
-  - Empty names → Use generic icon or question mark
-  - Special characters → Remove or normalize
-  - Very long names → Limit to 2-3 characters max
-</Step>
+    **Examples**:
 
-<Step title="Apply consistent styling">
-  Uppercase initials, center alignment, and readable font size (typically 40-50% of avatar size).
-</Step>
+    - "Jane Doe" → "JD"
+    - "Madonna" → "MA"
+    - "李明 (Li Ming)" → "LM"
+  </Step>
+  <Step title="Handle edge cases">
+    - Empty names → Use generic icon or question mark
+    - Special characters → Remove or normalize
+    - Very long names → Limit to 2-3 characters max
+  </Step>
+  <Step title="Apply consistent styling">
+    Uppercase initials, center alignment, and readable font size (typically 40-50% of avatar size).
+  </Step>
 </Steps>
 
 ### Color assignment for initials
@@ -362,25 +366,26 @@ For initials-based avatars, screen readers should announce the full name, not ju
 Assign consistent background colors based on user attributes for better recognition:
 
 **Methods:**
+
 - **Hash-based**: Generate color from user ID or name hash
 - **Sequential**: Assign colors from a predefined palette rotation
 - **Semantic**: Use colors based on user role or department
 
 <Info>
-Ensure your color palette has sufficient variety (8-12 colors) and all colors meet accessibility standards.
+  Ensure your color palette has sufficient variety (8-12 colors) and all colors meet accessibility standards.
 </Info>
 
 ## Design specifications
 
 ### Sizing scale
 
-| Size | Dimensions | Use Case | Initial Font Size |
-|------|-----------|----------|-------------------|
-| XS | 16-20px | Inline, dense tables | 8-10px |
-| S | 24-28px | Comments, feeds | 10-12px |
-| M | 32-40px | Lists, cards | 14-16px |
-| L | 48-56px | Headers, profiles | 18-24px |
-| XL | 64px+ | Profile pages | 24-32px |
+| Size | Dimensions | Use Case             | Initial Font Size |
+| ---- | ---------- | -------------------- | ----------------- |
+| XS   | 16-20px    | Inline, dense tables | 8-10px            |
+| S    | 24-28px    | Comments, feeds      | 10-12px           |
+| M    | 32-40px    | Lists, cards         | 14-16px           |
+| L    | 48-56px    | Headers, profiles    | 18-24px           |
+| XL   | 64px+      | Profile pages        | 24-32px           |
 
 ### Visual properties
 
@@ -393,23 +398,23 @@ Ensure your color palette has sufficient variety (8-12 colors) and all colors me
 ## Common pitfalls to avoid
 
 <Warning>
-**Don't use tiny avatars for primary identification** — Users should be able to recognize avatars at a glance
+  **Don't use tiny avatars for primary identification** — Users should be able to recognize avatars at a glance
 </Warning>
 
 <Warning>
-**Don't forget fallbacks** — Always handle missing images gracefully with initials or default icons
+  **Don't forget fallbacks** — Always handle missing images gracefully with initials or default icons
 </Warning>
 
 <Warning>
-**Don't ignore loading states** — Show skeleton loaders or placeholders while images load
+  **Don't ignore loading states** — Show skeleton loaders or placeholders while images load
 </Warning>
 
 <Warning>
-**Don't overcrowd with badges** — Limit overlay elements to maintain clarity
+  **Don't overcrowd with badges** — Limit overlay elements to maintain clarity
 </Warning>
 
 <Warning>
-**Don't use random colors without consistency** — Use deterministic color assignment so the same user always gets the same color
+  **Don't use random colors without consistency** — Use deterministic color assignment so the same user always gets the same color
 </Warning>
 
 ## Related components
@@ -422,6 +427,7 @@ Ensure your color palette has sufficient variety (8-12 colors) and all colors me
 ## Implementation example
 
 <CodeGroup>
+
 ```html HTML
 <div class="avatar avatar-medium">
   <img src="/images/user-avatar.jpg" alt="Profile picture of Jane Doe" />
@@ -433,6 +439,7 @@ Ensure your color palette has sufficient variety (8-12 colors) and all colors me
 </div>
 ```
 
+
 ```jsx React
 <Avatar
   src="/images/user-avatar.jpg"
@@ -443,6 +450,7 @@ Ensure your color palette has sufficient variety (8-12 colors) and all colors me
 />
 ```
 
+
 ```vue Vue
 <Avatar
   :src="user.avatarUrl"
@@ -452,6 +460,7 @@ Ensure your color palette has sufficient variety (8-12 colors) and all colors me
   :status="user.onlineStatus"
 />
 ```
+
 </CodeGroup>
 
 ## Resources
@@ -461,6 +470,5 @@ Ensure your color palette has sufficient variety (8-12 colors) and all colors me
 - Component status: Stable
 
 <Note>
-This component is part of the SAP LeanIX Web UI Kit design system and follows established patterns for enterprise applications.
+  This component is part of the SAP LeanIX Web UI Kit design system and follows established patterns for enterprise applications.
 </Note>
-
