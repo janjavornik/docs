@@ -14,9 +14,9 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Components",
+            "group": "Getting started",
             "pages": [
-              "components/button",
+              "index",
               "quickstart",
               "development"
             ]
@@ -29,7 +29,8 @@
           {
             "group": "UI Components",
             "pages": [
-              "components/button"
+              "components/button",
+              "components/checkbox"
             ]
           }
         ]
