@@ -22,6 +22,17 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Components",
+        "groups": [
+          {
+            "group": "UI Components",
+            "pages": [
+              "components/button"
+            ]
+          }
+        ]
       }
     ],
     "global": {
