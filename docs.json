@@ -14,9 +14,9 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Components",
             "pages": [
-              "index",
+              "components/button",
               "quickstart",
               "development"
             ]
