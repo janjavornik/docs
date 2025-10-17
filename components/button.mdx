@@ -1,0 +1,293 @@
+---
+title: "Button Component"
+description: "Interactive button component for performing actions and navigation in your application"
+---
+
+## Overview
+
+Buttons allow users to perform an action or navigate to another page. They have multiple styles for various needs and are ideal for calling attention to where a user needs to do something in order to move forward in a flow.
+
+<Frame>
+<img src="https://www.figma.com/design/PbVpP4WeWhp1g8aqpKYAed/SAP-LeanIX-Web-UI-Kit?node-id=1487-11654" alt="Button component variants showcasing different sizes and styles" />
+</Frame>
+
+## When to use
+
+Use buttons to help users:
+- **Complete primary actions** such as submitting forms or confirming decisions
+- **Navigate to different pages** or sections of your application
+- **Trigger important operations** that require user confirmation
+- **Initiate workflows** that move users forward in a process
+
+<Tip>
+Buttons are most effective when they clearly communicate what will happen when clicked. Use action-oriented language like "Submit", "Add Filter", or "Save Changes".
+</Tip>
+
+## Variants
+
+### Size
+
+The button component comes in two sizes to accommodate different layout requirements.
+
+<Tabs>
+<Tab title="Large">
+  The large size is the default and most frequently used option. Use large buttons for:
+  - Primary page actions
+  - Form submissions
+  - Modal confirmations
+  
+  **Minimum width**: 72px
+</Tab>
+
+<Tab title="Small">
+  Use small buttons in compact interfaces or when multiple actions are grouped together.
+  
+  **Minimum width**: 64px
+</Tab>
+</Tabs>
+
+### Style
+
+Choose the appropriate button style based on the action's importance in your interface hierarchy.
+
+<CardGroup cols={2}>
+<Card title="Primary" icon="star">
+  Use for the most important action on a page or section. Primary buttons demand attention and guide users toward the main task.
+  
+  **Best for**: Form submissions, main CTAs, confirmations
+</Card>
+
+<Card title="Solid" icon="square">
+  Choose solid style for secondary functions that support your main objectives but have lower emphasis than primary actions.
+  
+  **Best for**: Secondary actions, supporting tasks
+</Card>
+
+<Card title="Outline" icon="border-outer">
+  Use for tertiary actions with the lowest hierarchy, such as "Cancel" or "Previous Step". Also suitable for hover and edit modes on grey backgrounds.
+  
+  **Best for**: Cancel actions, navigation steps, low-priority tasks
+</Card>
+
+<Card title="AI" icon="sparkles">
+  Special style to mark AI-generated content or AI-powered features.
+  
+  **Best for**: AI features, generated content markers
+</Card>
+</CardGroup>
+
+### Label and icon
+
+Buttons can contain labels, icons, or both depending on the context and clarity requirements.
+
+<Tabs>
+<Tab title="With label and icon">
+  Combine labels with icons when the icon has a strong association with the action and adds clarity.
+  
+  ```jsx
+  <Button icon="sync" label="Refresh Data" />
+  ```
+  
+  <Check>
+  Icons enhance understanding and make buttons more scannable in dense interfaces.
+  </Check>
+</Tab>
+
+<Tab title="Icon only">
+  Use icon-only buttons for frequently recurring actions where icons are self-explanatory (e.g., edit, delete, close).
+  
+  ```jsx
+  <Button icon="sync" tooltip="Refresh" />
+  ```
+  
+  <Warning>
+  Always include a tooltip for icon-only buttons to ensure accessibility and clarity.
+  </Warning>
+</Tab>
+
+<Tab title="Label only">
+  Use text-only buttons when the action is best described with words and an icon would add no value.
+  
+  ```jsx
+  <Button label="Submit Form" />
+  ```
+</Tab>
+</Tabs>
+
+### Behavior states
+
+Buttons respond to user interaction with visual feedback through different states.
+
+<AccordionGroup>
+<Accordion title="Default">
+  The standard appearance of the button, presenting its regular design without any user interaction.
+  
+  This is the resting state users see before taking action.
+</Accordion>
+
+<Accordion title="Hover">
+  When users hover their cursor over the button, it transitions into the hover state. This state provides visual feedback, indicating that the button is interactive.
+  
+  **Purpose**: Communicates interactivity and prepares users for the click action.
+</Accordion>
+
+<Accordion title="Pressed">
+  As users click or tap on the button, it enters the pressed state. This state acknowledges the user's action, letting them know that their input has been registered.
+  
+  **Purpose**: Provides immediate visual confirmation of user interaction.
+</Accordion>
+
+<Accordion title="Disabled">
+  In the disabled state, the button appears visually grayed out or faded, indicating that it's temporarily inactive or unavailable for interaction.
+  
+  **When to use**: Prevent unintended actions and guide users when certain conditions must be met before the button becomes clickable.
+</Accordion>
+
+<Accordion title="Loading">
+  Shows a loading indicator when an action is processing. This prevents duplicate submissions and informs users that their action is being processed.
+  
+  **Purpose**: Provides feedback during asynchronous operations.
+</Accordion>
+</AccordionGroup>
+
+<Info>
+The Button and SplitButton components share the same variants for consistency across your interface.
+</Info>
+
+## Usage guidelines
+
+### General usage principles
+
+<Steps>
+<Step title="One primary CTA per page or section">
+  Limit primary buttons to one per page or distinct section to maintain clear visual hierarchy and prevent user confusion.
+  
+  <Warning>
+  Avoid using multiple colored CTA buttons (e.g., primary and danger) in the same group to prevent "French flag syndrome" where no action is clearly prioritized.
+  </Warning>
+</Step>
+
+<Step title="Use solid grey for secondary actions">
+  Apply solid grey buttons for secondary CTAs that have lower emphasis than the primary action but are still important to the user flow.
+</Step>
+
+<Step title="Reserve outline for lowest hierarchy">
+  Use outline buttons for actions at the bottom of the hierarchy, such as "Previous" or "Cancel" buttons, and for hover/edit modes on grey backgrounds.
+</Step>
+</Steps>
+
+### Placement best practices
+
+**Top-left placement**: Use for additive actions like "Add Item", "Create New", or "Import"
+
+**Bottom-right placement**: Reserve for confirmatory actions such as "Save", "Submit", or "Continue"
+
+<Tip>
+Consistent placement helps users develop muscle memory and improves the overall user experience.
+</Tip>
+
+### Labeling guidelines
+
+<CardGroup cols={1}>
+<Card title="✓ Clearly state the action" icon="check">
+  Make sure that a button's label clearly states the outcome of the action. Use the same word or phrase as found elsewhere in the experience.
+  
+  **Good examples**: "Submit", "Save Changes", "Add Filter"
+</Card>
+
+<Card title="✓ Button hierarchy for clear and consistent labels" icon="check">
+  When grouping buttons, ensure each button's label clearly describes a distinct action. Avoid duplicate labels in the same group.
+  
+  **Bad example**: Three buttons all labeled "Submit"
+</Card>
+
+<Card title="✓ Use icons only when necessary" icon="check">
+  Icons can be used in buttons when additional clarity is required and the icon is highly relevant to the action. Icons should not be used for decoration.
+  
+  **Good example**: "+ Add Filter" (icon adds meaning)
+</Card>
+
+<Card title="✗ Don't override colors" icon="ban">
+  Do not use custom colors for buttons. The colors of different button variations have been designed to be consistent and accessible.
+  
+  **Bad example**: Using a yellow button for a custom action type
+</Card>
+</CardGroup>
+
+### Writing effective button labels
+
+- **Use clear, concise text** for describing an action
+- **Keep it consistent** (e.g., match headlines with CTA wording)
+- **Avoid redundancy** (e.g., "Add new" with a plus icon is superfluous)
+- **Start with action verbs** like "Create", "Delete", "Submit", "Cancel"
+- **Keep labels short** while maintaining clarity (1-3 words ideal)
+
+## Best practices
+
+<Check>
+**Do** limit primary CTAs to one per page or section to maintain clear hierarchy
+</Check>
+
+<Check>
+**Do** use action-oriented language that clearly describes what happens when clicked
+</Check>
+
+<Check>
+**Do** provide tooltips for icon-only buttons to ensure accessibility
+</Check>
+
+<Check>
+**Do** disable buttons when actions cannot be completed and provide context why
+</Check>
+
+<Warning>
+**Don't** place multiple primary-colored buttons in the same button group
+</Warning>
+
+<Warning>
+**Don't** use decorative icons that don't add meaning to the action
+</Warning>
+
+<Warning>
+**Don't** override button colors for custom styling—use the provided variants
+</Warning>
+
+<Warning>
+**Don't** use vague labels like "Click here" or "OK" without context
+</Warning>
+
+## Accessibility considerations
+
+- **Keyboard navigation**: Ensure all buttons are accessible via keyboard using Tab and Enter/Space keys
+- **Focus indicators**: Maintain visible focus states for keyboard users
+- **Touch targets**: Minimum touch target size should be 32x32px for mobile interfaces
+- **Color contrast**: All button text meets WCAG AA standards (4.5:1 for normal text)
+- **Screen readers**: Provide aria-labels for icon-only buttons
+- **Loading states**: Announce loading states to screen readers using aria-live regions
+
+<Tip>
+Always test your button implementations with keyboard navigation and screen readers to ensure full accessibility.
+</Tip>
+
+## Related components
+
+- **SplitButton**: Combines a primary action button with a dropdown menu for related secondary actions
+- **IconButton**: Simplified button component optimized for icon-only use cases
+- **Link Button**: Button styled as a link for lower-emphasis actions
+
+## Implementation notes
+
+<Info>
+For implementation details, code examples, and framework-specific guidance, refer to your design system's component library documentation.
+</Info>
+
+## Resources
+
+- [View in Figma](https://www.figma.com/design/PbVpP4WeWhp1g8aqpKYAed/SAP-LeanIX-Web-UI-Kit?node-id=1487-11654)
+- Design tokens: Use system-defined colors and spacing for consistency
+- Component status: Stable
+
+<Note>
+This component is part of the SAP LeanIX Web UI Kit design system and follows established patterns for enterprise applications.
+</Note>
+
