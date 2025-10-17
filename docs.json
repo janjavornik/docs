@@ -16,6 +16,7 @@
           {
             "group": "Components",
             "pages": [
+              "components/avatar",
               "components/button",
               "components/checkbox"
             ]
