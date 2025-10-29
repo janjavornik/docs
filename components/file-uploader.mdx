@@ -1,0 +1,359 @@
+---
+title: "File Uploader"
+description: "Upload component that allows users to add files by drag and drop or by browsing from their device"
+---
+
+## Overview
+
+The File Uploader component allows users to add files by either dragging and dropping them into the designated area or by clicking the "Browse" button to select files from their device. It provides clear visual feedback throughout the upload process and supports various file formats.
+
+<Frame>
+  ![File Uploader component showing different states including default, processing, uploaded, and error states](https://www.figma.com/design/PbVpP4WeWhp1g8aqpKYAed/SAP-LeanIX-Web-UI-Kit?node-id=16314-18474)
+</Frame>
+
+## When to use
+
+Use the File Uploader component when you need to:
+
+- **Accept file uploads** from users in forms or workflows
+- **Support multiple upload methods** (drag & drop and file browser)
+- **Provide upload progress feedback** during file processing
+- **Handle file validation** and error states gracefully
+- **Enable bulk data import** such as Excel or CSV files
+- **Allow document attachments** in applications
+
+<Tip>
+  The File Uploader is ideal for workflows where users need to import data, attach documents, or upload media files as part of a larger process.
+</Tip>
+
+## Variants
+
+### Upload States
+
+The File Uploader component transitions through multiple states to provide clear feedback during the upload process.
+
+<Tabs>
+  <Tab title="Default State">
+    The initial state presents users with clear upload options and instructions.
+
+    **Key features:**
+    - **Drag & Drop**: Users can drop one or more files directly onto the component to upload them
+    - **Browse Button**: Opens the file explorer for manual selection
+    - **Supported formats**: Clearly displays accepted file types (e.g., .xlsx)
+    - **Visual cues**: Dashed border and upload icon indicate the drop zone
+
+    **When to use**: Initial presentation before any files are selected
+  </Tab>
+  <Tab title="Processing State">
+    Displays upload progress with a loading indicator and filename.
+
+    **Key features:**
+    - **Loading animation**: Visual progress indicator shows upload is in progress
+    - **File name display**: Shows which file is currently being uploaded
+    - **Progress feedback**: "Uploading 'filename'..." message keeps users informed
+    - **Prevents duplicate uploads**: Interface indicates the system is busy
+
+    **When to use**: During active file upload and processing
+  </Tab>
+  <Tab title="Uploaded State">
+    Shows successfully uploaded files with management options.
+
+    **Key features:**
+    - **File badges**: Display uploaded file names in a clean format
+    - **Remove functionality**: Trash icon allows easy file removal
+    - **List format**: Multiple uploaded files are shown as a manageable list
+    - **Status confirmation**: Clear indication that upload was successful
+
+    **When to use**: After successful file upload, allowing users to manage uploaded files
+
+    <Info>
+      In some workflows, the Uploaded state can be replaced with context-aware results like data previews or validation summaries, helping users focus on the next steps in their journey.
+    </Info>
+  </Tab>
+  <Tab title="Error State">
+    Provides clear error messaging for failed uploads or unsupported files.
+
+    **Key features:**
+    - **Error banner**: Red-bordered notification area for error messages
+    - **Specific messaging**: Clear explanation of what went wrong
+    - **Recovery options**: Maintains upload interface for retry attempts
+    - **File type validation**: Indicates when unsupported formats are used
+
+    **When to use**: When uploads fail due to file size, format, or network issues
+  </Tab>
+</Tabs>
+
+## Usage guidelines
+
+### File format support
+
+<Steps>
+  <Step title="Define supported formats clearly">
+    Always specify which file types are accepted. Display this information prominently in the upload area.
+
+    <Check>
+      Example: "Supported formats: .xlsx, .csv, .xml"
+    </Check>
+  </Step>
+  <Step title="Validate files on selection">
+    Perform client-side validation immediately when files are selected to provide quick feedback before upload attempts.
+  </Step>
+  <Step title="Set reasonable file size limits">
+    Implement and communicate file size restrictions to prevent failed uploads and server issues.
+  </Step>
+</Steps>
+
+### Interaction patterns
+
+**Drag and Drop Guidelines:**
+
+- Provide clear visual feedback when files are dragged over the drop zone
+- Support multiple file selection when appropriate for your use case
+- Highlight the drop area with border changes or color shifts during drag operations
+
+**Browse Button Best Practices:**
+
+- Use clear, action-oriented button text like "Browse" or "Select Files"
+- Ensure the button is accessible and works with keyboard navigation
+- Consider allowing both single and multiple file selection based on requirements
+
+<Warning>
+  Always validate uploaded files on both client and server sides for security and data integrity.
+</Warning>
+
+### Progress and feedback
+
+<CardGroup cols={2}>
+  <Card title="Processing Feedback" icon="clock">
+    Show clear progress indicators during upload operations. Include file names and status messages to keep users informed.
+
+    **Best practices:**
+    - Display file names being processed
+    - Use loading animations or progress bars
+    - Prevent interface interaction during upload
+  </Card>
+  <Card title="Error Handling" icon="exclamation-triangle">
+    Provide specific, actionable error messages that help users understand and resolve issues.
+
+    **Best practices:**
+    - Explain why the upload failed
+    - Suggest corrective actions
+    - Allow users to retry easily
+  </Card>
+</CardGroup>
+
+## Best practices
+
+<Check>
+  **Do** provide immediate visual feedback for all user interactions (drag, drop, select)
+</Check>
+
+<Check>
+  **Do** clearly communicate file format restrictions and size limits upfront
+</Check>
+
+<Check>
+  **Do** show upload progress and file names during processing
+</Check>
+
+<Check>
+  **Do** allow users to remove uploaded files before final submission
+</Check>
+
+<Check>
+  **Do** provide specific error messages when uploads fail
+</Check>
+
+<Warning>
+  **Don't** allow uploads to start without proper validation
+</Warning>
+
+<Warning>
+  **Don't** leave users guessing about upload progress or status
+</Warning>
+
+<Warning>
+  **Don't** use generic error messages that don't help users resolve issues
+</Warning>
+
+<Warning>
+  **Don't** forget to handle edge cases like network interruptions or large files
+</Warning>
+
+## Common use cases
+
+### Data Import
+
+Perfect for importing structured data like Excel spreadsheets, CSV files, or XML documents into business applications.
+
+**Implementation considerations:**
+- Validate data format and structure after upload
+- Provide data preview or validation summary
+- Handle large datasets gracefully
+- Offer data mapping or column selection interfaces
+
+### Document Attachments
+
+Enable users to attach supporting documents, images, or files to records or forms.
+
+**Implementation considerations:**
+- Support multiple file types (documents, images, PDFs)
+- Display file thumbnails or icons based on type
+- Provide file management capabilities (rename, replace, remove)
+- Handle file versioning if needed
+
+### Batch Operations
+
+Allow users to upload multiple files simultaneously for bulk processing operations.
+
+**Implementation considerations:**
+- Show individual file progress and status
+- Handle partial failures gracefully
+- Provide batch operation controls (pause, resume, cancel)
+- Summarize overall operation results
+
+## Contextual Integration
+
+### Excel Import Example
+
+In workflows like inventory management, the File Uploader can seamlessly transition from upload to data preview:
+
+1. **Upload**: User drags Excel file to upload area
+2. **Processing**: Shows "Uploading inventory-data.xlsx..." with loader
+3. **Preview**: Instead of just showing the uploaded file, display a preview of imported items, validation results, or data mapping interface
+4. **Action**: User can proceed with import or make adjustments
+
+<Tip>
+  This contextual approach keeps users focused on their workflow rather than just the file upload mechanics.
+</Tip>
+
+## Accessibility considerations
+
+- **Keyboard navigation**: Ensure the upload area and buttons are accessible via keyboard using Tab and Enter/Space keys
+- **Screen reader support**: 
+  - Provide clear labels and instructions for screen readers
+  - Announce upload progress and status changes
+  - Use aria-live regions for dynamic status updates
+- **Focus management**: Maintain logical focus flow throughout the upload process
+- **Touch targets**: Ensure adequate touch target sizes (minimum 44x44px) for mobile interfaces
+- **Color independence**: Don't rely solely on color to indicate upload states or errors
+- **File type communication**: Clearly communicate supported file types in text, not just visually
+
+<Check>
+  Test the component with keyboard navigation, screen readers, and various assistive technologies to ensure full accessibility.
+</Check>
+
+## Writing effective upload instructions
+
+<CardGroup cols={1}>
+  <Card title="✓ Be specific about file requirements" icon="check">
+    Clearly state supported file types, size limits, and any special requirements.
+
+    **Good**: "Upload Excel files (.xlsx) up to 10MB"
+    **Bad**: "Upload your file here"
+  </Card>
+  <Card title="✓ Use action-oriented language" icon="check">
+    Make instructions clear and actionable for users.
+
+    **Good**: "DROP A FILE TO UPLOAD OR BROWSE"
+    **Bad**: "File upload area"
+  </Card>
+  <Card title="✓ Provide helpful error messages" icon="check">
+    When uploads fail, explain what happened and how to fix it.
+
+    **Good**: "File size exceeds 10MB limit. Please compress your file or contact support."
+    **Bad**: "Upload failed."
+  </Card>
+</CardGroup>
+
+## Design specifications
+
+<AccordionGroup>
+  <Accordion title="Upload area dimensions">
+    - **Default width**: 400px
+    - **Minimum height**: 124px
+    - **Border**: 1px dashed #99A5BB
+    - **Border radius**: 4px
+    - **Padding**: 24px (cozy spacing)
+  </Accordion>
+  <Accordion title="Typography and spacing">
+    - **Primary instruction text**: 14px Bold, #2A303D
+    - **Secondary text**: 14px Regular, #526179
+    - **File name text**: 12px Semibold, #3E495B
+    - **Icon size**: 24px for upload icon, 12px for remove icon
+    - **Internal spacing**: 8px between elements
+  </Accordion>
+  <Accordion title="State-specific styling">
+    - **Default**: White background, dashed border
+    - **Hover**: Visual feedback on border or background
+    - **Active drag**: Enhanced border or background highlight
+    - **Processing**: Maintain border, add loading animation
+    - **Error**: Red-bordered error banner overlay
+    - **Success**: Solid border with uploaded file badges
+  </Accordion>
+  <Accordion title="Loading indicators">
+    - **Loader bars**: 6px wide, varying heights (25px, 20px, 15px pattern)
+    - **Loader color**: #0070F2 (primary blue)
+    - **Animation**: Smooth height transitions for bars
+    - **Spacing**: 5px between loader bars
+  </Accordion>
+</AccordionGroup>
+
+## Related components
+
+- **Button**: For browse functionality and action triggers
+- **Badge**: For displaying uploaded file names
+- **Loader**: For upload progress indication
+- **Banner**: For error and status messaging
+
+## Implementation notes
+
+<Info>
+  For implementation details, code examples, and framework-specific guidance, refer to your design system's component library documentation.
+</Info>
+
+### Required functionality
+
+When implementing the File Uploader, ensure you support:
+
+1. **Drag and drop handling**: File drag events and drop zone highlighting
+2. **File input integration**: Hidden file input triggered by browse button
+3. **Upload progress tracking**: Real-time progress indication during uploads
+4. **Validation logic**: Client-side and server-side file validation
+5. **Error handling**: Graceful error display and recovery options
+6. **State management**: Proper state transitions between upload phases
+
+### Security considerations
+
+```javascript
+// Example validation patterns
+const validateFile = (file) => {
+  // Check file type
+  const allowedTypes = ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'];
+  if (!allowedTypes.includes(file.type)) {
+    return 'Invalid file type. Please upload an Excel file (.xlsx)';
+  }
+  
+  // Check file size (10MB limit)
+  const maxSize = 10 * 1024 * 1024;
+  if (file.size > maxSize) {
+    return 'File too large. Maximum size is 10MB.';
+  }
+  
+  return null; // Valid file
+};
+```
+
+<Warning>
+  Always perform server-side validation in addition to client-side checks for security and data integrity.
+</Warning>
+
+## Resources
+
+- [View in Figma](https://www.figma.com/design/PbVpP4WeWhp1g8aqpKYAed/SAP-LeanIX-Web-UI-Kit?node-id=16314-18474)
+- Design tokens: Use system-defined colors and spacing for consistency
+- Component status: Stable
+
+<Note>
+  This component is part of the SAP LeanIX Web UI Kit design system and follows established patterns for enterprise applications.
+</Note>

@@ -18,7 +18,8 @@
             "pages": [
               "components/avatar",
               "components/button",
-              "components/checkbox"
+              "components/checkbox",
+              "components/file-uploader"
             ]
           }
         ]
