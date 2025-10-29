@@ -1,0 +1,752 @@
+---
+title: "Rich Text Editor"
+description: "Advanced text input component with formatting capabilities for creating rich content"
+---
+
+## Overview
+
+The Rich Text Editor component provides users with a powerful interface for creating and editing formatted content. With an intuitive toolbar featuring essential formatting options, it enables users to create rich text with bold, italic, underlined text, lists, and links while maintaining a clean and accessible user experience.
+
+<Frame>
+  ![Rich Text Editor component showcasing different states and formatting options](https://www.figma.com/design/PbVpP4WeWhp1g8aqpKYAed/SAP-LeanIX-Web-UI-Kit?node-id=15682-4954)
+</Frame>
+
+<Tabs>
+  <Tab title="Usage">
+
+## When to use
+
+Use the Rich Text Editor when users need to:
+
+- **Create formatted content** such as documentation, comments, or descriptions
+- **Edit existing rich text content** with formatting preserved
+- **Compose messages or posts** that benefit from text formatting
+- **Author content** that requires structured elements like lists and links
+- **Provide detailed inputs** where plain text is insufficient
+
+<Tip>
+  Rich Text Editors are ideal for content creation workflows where formatting enhances readability and user expression.
+</Tip>
+
+## Key features
+
+### Comprehensive Formatting Toolbar
+
+The Rich Text Editor includes a toolbar with essential formatting options that users expect in modern text editing interfaces.
+
+**Available formatting options:**
+- **Bold text** - Emphasize important content
+- **Italic text** - Add subtle emphasis or indicate quotes
+- **Underlined text** - Highlight specific terms or phrases
+- **Ordered lists** - Create numbered sequences
+- **Unordered lists** - Add bullet points for items
+- **Link insertion** - Add hyperlinks to external resources
+
+<Check>
+  The toolbar only includes essential formatting options to prevent overwhelming users while covering the most common use cases.
+</Check>
+
+### Multiple Input States
+
+The component supports various states to provide appropriate visual feedback and functionality based on context.
+
+<Tabs>
+  <Tab title="Empty">
+    The initial state when no content has been entered. Shows placeholder text to guide users on what content is expected.
+
+    **Visual characteristics:**
+    - Standard border color (#99A5BB)
+    - Placeholder text in muted color
+    - Full toolbar functionality available
+  </Tab>
+  <Tab title="Default">
+    Active state when content is present but the editor is not focused. Maintains formatting toolbar and displays content clearly.
+
+    **Use cases:**
+    - Displaying existing content
+    - Showing saved drafts
+    - Preview mode with edit capability
+  </Tab>
+  <Tab title="Focused">
+    Activated when users click into the text area. Provides clear visual indication that the editor is ready for input.
+
+    **Visual characteristics:**
+    - Blue border (#0070F2) indicates focus
+    - Enhanced toolbar visibility
+    - Clear interaction state
+  </Tab>
+  <Tab title="Error">
+    Displayed when content validation fails or required content is missing.
+
+    **Visual characteristics:**
+    - Red border (#F96464) indicates error state
+    - Maintains full editing capability
+    - Should be accompanied by error messages
+  </Tab>
+  <Tab title="Read Only">
+    Shows content without editing capabilities. Useful for displaying formatted content that shouldn't be modified.
+
+    **Visual characteristics:**
+    - Grayed background (#F0F2F5)
+    - No toolbar interaction
+    - Content remains formatted and readable
+  </Tab>
+</Tabs>
+
+### Resizable Text Area
+
+The editor supports resizing to accommodate varying content lengths and user preferences.
+
+**Benefits:**
+- Adapts to different content volumes
+- Improves user control over interface
+- Enhances readability for longer content
+- Provides better editing experience
+
+<Info>
+  The resize handle appears in the bottom-right corner and allows users to adjust the editor height as needed.
+</Info>
+
+### Optional AI Integration
+
+The component can include an AI assistant button for enhanced content creation capabilities.
+
+**AI features:**
+- Content suggestions and improvements
+- Grammar and style corrections  
+- Template generation
+- Format optimization
+
+<Warning>
+  AI features should be clearly labeled and users should understand when AI is being used to assist with content creation.
+</Warning>
+
+## Usage guidelines
+
+### Content appropriateness
+
+<Steps>
+  <Step title="Use for substantial text inputs">
+    Rich Text Editors work best for content that benefits from formatting - avoid for simple, short text inputs where a basic text field would suffice.
+
+    **Good examples:**
+    - Product descriptions
+    - Comment systems
+    - Documentation authoring
+    - Email composition
+  </Step>
+  <Step title="Consider user expertise">
+    Ensure your users are comfortable with rich text editing. For basic users, consider starting with essential formatting only.
+
+    **Progressive disclosure:** Start with basic formatting and add advanced features as users become more comfortable.
+  </Step>
+  <Step title="Provide clear expectations">
+    Use labels and helper text to indicate what type of content is expected and any formatting guidelines.
+  </Step>
+</Steps>
+
+### Form integration
+
+**Label usage:**
+- Always provide clear, descriptive labels
+- Use sentence case for consistency
+- Include indication of required vs. optional fields
+
+**Helper text:**
+- Explain formatting capabilities available
+- Provide content guidelines or restrictions
+- Indicate character limits if applicable
+
+**Error handling:**
+- Show specific validation errors
+- Maintain user content during error states
+- Provide clear guidance on how to resolve issues
+
+### Accessibility considerations
+
+<Check>
+  **Keyboard navigation** - Ensure all toolbar functions are accessible via keyboard shortcuts
+</Check>
+
+<Check>
+  **Screen reader support** - Provide appropriate ARIA labels for toolbar buttons and formatting states
+</Check>
+
+<Check>
+  **Focus management** - Maintain logical tab order through toolbar and text area
+</Check>
+
+<Check>
+  **Content structure** - Ensure generated HTML maintains proper semantic structure for screen readers
+</Check>
+
+## Best practices
+
+### Content management
+
+<CardGroup cols={1}>
+  <Card title="✓ Auto-save functionality" icon="check">
+    Implement auto-save to prevent content loss, especially for longer text creation workflows.
+
+    **Best practices**: Save every 30 seconds or after significant pauses in typing.
+  </Card>
+  <Card title="✓ Content validation" icon="check">
+    Validate rich text content for security and formatting issues before saving.
+
+    **Security**: Sanitize HTML to prevent XSS attacks and unwanted styling.
+  </Card>
+  <Card title="✓ Consistent styling" icon="check">
+    Ensure formatted content renders consistently across your application.
+
+    **Implementation**: Define CSS styles for all supported formatting options.
+  </Card>
+  <Card title="✗ Overwhelming options" icon="ban">
+    Don't include too many formatting options that might confuse or distract users from their primary task.
+
+    **Keep focused**: Include only formatting options that truly enhance the user's content creation process.
+  </Card>
+</CardGroup>
+
+### Performance considerations
+
+- **Lazy loading**: Load rich text editors only when needed
+- **Content size limits**: Set reasonable limits on content length
+- **Efficient rendering**: Optimize for smooth typing experience
+- **Memory management**: Clean up editor instances when components unmount
+
+### Responsive design
+
+The Rich Text Editor should adapt gracefully to different screen sizes:
+
+**Mobile considerations:**
+- Simplified toolbar with most essential options
+- Larger touch targets for toolbar buttons
+- Appropriate text sizing for mobile reading
+- Responsive text area that fits screen width
+
+**Desktop optimizations:**
+- Full toolbar with all formatting options
+- Keyboard shortcuts for power users
+- Larger editing surface area
+- Multi-column layouts where appropriate
+
+## Common use cases
+
+### Documentation and knowledge management
+
+Rich Text Editors excel in documentation systems where users need to create structured, formatted content.
+
+**Implementation tips:**
+- Enable lists and emphasis formatting
+- Support for links to other documents
+- Consider heading styles for document structure
+- Provide templates for common document types
+
+### Communication platforms
+
+For comments, messages, and collaborative content creation.
+
+**Features to emphasize:**
+- Quick formatting shortcuts
+- Link sharing capabilities
+- @mention functionality integration
+- Real-time collaborative editing support
+
+### Content management systems
+
+When users are creating content that will be published or shared widely.
+
+**Advanced considerations:**
+- Image insertion capabilities
+- Table formatting support
+- Custom styling options
+- Content preview functionality
+
+## Error states and validation
+
+### Input validation
+
+<AccordionGroup>
+  <Accordion title="Required content validation">
+    When rich text input is required, validate that meaningful content exists (not just formatting tags).
+
+    **Implementation**: Check for actual text content, not just HTML tags.
+  </Accordion>
+  <Accordion title="Content length validation">
+    Enforce minimum and maximum content lengths as appropriate for your use case.
+
+    **User feedback**: Show character counts and progress indicators for length requirements.
+  </Accordion>
+  <Accordion title="Format validation">
+    Ensure content meets specific formatting requirements (e.g., must contain certain elements).
+
+    **Example**: Job posting might require bullet points for responsibilities.
+  </Accordion>
+  <Accordion title="Security validation">
+    Sanitize content to prevent security issues while preserving legitimate formatting.
+
+    **Balance**: Maintain user formatting intentions while ensuring security.
+  </Accordion>
+</AccordionGroup>
+
+## Integration patterns
+
+### With forms
+
+```jsx
+// Integration with form validation
+<FormField
+  label="Product Description"
+  required
+  error={errors.description}
+  helperText="Use formatting to highlight key features and benefits"
+>
+  <RichTextEditor
+    value={formData.description}
+    onChange={handleDescriptionChange}
+    state={errors.description ? "error" : "default"}
+    placeholder="Describe your product's key features..."
+  />
+</FormField>
+```
+
+### With auto-save
+
+```jsx
+// Auto-save implementation
+const useAutoSave = (content, saveFunction) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (content && content !== lastSavedContent) {
+        saveFunction(content);
+      }
+    }, 30000); // Save after 30 seconds of inactivity
+
+    return () => clearTimeout(timer);
+  }, [content]);
+};
+```
+
+## Related components
+
+- **Text Area**: Basic multi-line text input without formatting
+- **Text Field**: Single-line text input for simple content
+- **Code Editor**: Specialized editor for code content with syntax highlighting
+- **Markdown Editor**: Alternative approach for formatted text using markdown syntax
+
+  </Tab>
+  <Tab title="Code">
+
+## Implementation examples
+
+<CodeGroup>
+
+```html HTML
+<!-- Basic Rich Text Editor -->
+<div class="rich-text-editor">
+  <label class="rich-text-label">Description</label>
+  <div class="rich-text-container">
+    <div class="rich-text-toolbar">
+      <div class="toolbar-group">
+        <button class="toolbar-btn" aria-label="Bold">
+          <svg class="toolbar-icon">...</svg>
+        </button>
+        <button class="toolbar-btn" aria-label="Italic">
+          <svg class="toolbar-icon">...</svg>
+        </button>
+        <button class="toolbar-btn" aria-label="Underline">
+          <svg class="toolbar-icon">...</svg>
+        </button>
+      </div>
+      <div class="toolbar-divider"></div>
+      <div class="toolbar-group">
+        <button class="toolbar-btn" aria-label="Bullet List">
+          <svg class="toolbar-icon">...</svg>
+        </button>
+        <button class="toolbar-btn" aria-label="Numbered List">
+          <svg class="toolbar-icon">...</svg>
+        </button>
+      </div>
+    </div>
+    <div class="rich-text-content" contenteditable="true" role="textbox">
+      Start typing your content...
+    </div>
+  </div>
+</div>
+
+<!-- Error State -->
+<div class="rich-text-editor rich-text-error">
+  <label class="rich-text-label">Description *</label>
+  <div class="rich-text-container">
+    <!-- toolbar and content -->
+  </div>
+  <div class="rich-text-error-message">This field is required</div>
+</div>
+```
+
+```jsx React
+// Basic Usage
+<RichTextEditor
+  label="Product Description"
+  placeholder="Describe your product's key features..."
+  value={content}
+  onChange={setContent}
+  state="default"
+  resizable
+/>
+
+// With form integration
+<RichTextEditor
+  label="Comment"
+  helperText="Use formatting to enhance your message"
+  value={formData.comment}
+  onChange={(value) => setFormData({...formData, comment: value})}
+  state={errors.comment ? "error" : "default"}
+  required
+  aiButton
+/>
+
+// Read-only display
+<RichTextEditor
+  label="Approved Content"
+  value={approvedContent}
+  state="readOnly"
+  resizable={false}
+/>
+
+// With validation
+const [content, setContent] = useState('');
+const [error, setError] = useState('');
+
+const handleContentChange = (newContent) => {
+  setContent(newContent);
+  
+  // Validate content
+  if (newContent.length < 10) {
+    setError('Content must be at least 10 characters long');
+  } else {
+    setError('');
+  }
+};
+
+<RichTextEditor
+  label="Detailed Description"
+  value={content}
+  onChange={handleContentChange}
+  state={error ? "error" : "default"}
+  helperText={error || "Provide a detailed description"}
+  required
+/>
+```
+
+```vue Vue
+<template>
+  <RichTextEditor
+    :label="label"
+    :value="content"
+    @update:value="updateContent"
+    :state="validationState"
+    :helper-text="helperText"
+    :resizable="true"
+    :ai-button="enableAI"
+  />
+</template>
+
+<script setup>
+import { computed, ref } from 'vue'
+
+const content = ref('')
+const errors = ref([])
+
+const validationState = computed(() => {
+  return errors.value.length > 0 ? 'error' : 'default'
+})
+
+const helperText = computed(() => {
+  return errors.value[0] || 'Use formatting to enhance your content'
+})
+
+const updateContent = (newContent) => {
+  content.value = newContent
+  validateContent(newContent)
+}
+
+const validateContent = (content) => {
+  errors.value = []
+  
+  if (!content || content.trim().length === 0) {
+    errors.value.push('This field is required')
+  }
+  
+  if (content.length > 5000) {
+    errors.value.push('Content must be less than 5000 characters')
+  }
+}
+</script>
+```
+
+</CodeGroup>
+
+## Component API
+
+### Props
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `value` | `string` | `''` | Current rich text content (HTML) |
+| `onChange` | `function` | - | Callback when content changes |
+| `label` | `string` | - | Label text for the editor |
+| `labelText` | `string` | `'Label'` | Fallback label text |
+| `helperText` | `string` | - | Helper text below the editor |
+| `textHelper` | `string` | `'Helper Text'` | Fallback helper text |
+| `placeholder` | `string` | `'Rich Text input'` | Placeholder text |
+| `state` | `'Empty' \| 'Default' \| 'Focused' \| 'Error' \| 'Read Only'` | `'Empty'` | Visual state |
+| `required` | `boolean` | `false` | Whether input is required |
+| `mandatoryField` | `boolean` | `false` | Shows required indicator |
+| `resizable` | `boolean` | `true` | Allows resizing the editor |
+| `aiButton` | `boolean` | `false` | Shows AI assistant button |
+| `disabled` | `boolean` | `false` | Disables editor interaction |
+| `maxLength` | `number` | - | Maximum character limit |
+
+### Events
+
+| Event | Payload | Description |
+|-------|---------|-------------|
+| `onChange` | `(content: string) => void` | Content has changed |
+| `onFocus` | `() => void` | Editor has gained focus |
+| `onBlur` | `() => void` | Editor has lost focus |
+| `onValidate` | `(errors: string[]) => void` | Validation results |
+
+### CSS Classes
+
+```css
+/* Base rich text editor styles */
+.rich-text-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 180px;
+  width: 300px;
+}
+
+.rich-text-label {
+  font-family: '72', sans-serif;
+  font-size: 14px;
+  color: #526179;
+  line-height: 17.5px;
+}
+
+.rich-text-container {
+  background: #ffffff;
+  border: 1px solid #99a5bb;
+  border-radius: 2px;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Toolbar styles */
+.rich-text-toolbar {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #f0f2f5;
+  overflow: hidden;
+}
+
+.toolbar-group {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.toolbar-btn {
+  background: #ffffff;
+  border: none;
+  padding: 6px;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toolbar-btn:hover {
+  background: #f0f2f5;
+}
+
+.toolbar-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.toolbar-divider {
+  width: 0;
+  height: 16px;
+  border-left: 1px solid #99a5bb;
+}
+
+/* Content area */
+.rich-text-content {
+  flex: 1;
+  padding: 16px;
+  font-family: '72', sans-serif;
+  font-size: 14px;
+  line-height: 17.5px;
+  color: #2a303d;
+  outline: none;
+}
+
+.rich-text-content:empty::before {
+  content: attr(placeholder);
+  color: #99a5bb;
+}
+
+/* State variations */
+.rich-text-editor--focused .rich-text-container {
+  border-color: #0070f2;
+}
+
+.rich-text-editor--error .rich-text-container {
+  border-color: #f96464;
+}
+
+.rich-text-editor--readonly .rich-text-container {
+  background: #f0f2f5;
+}
+
+.rich-text-editor--readonly .toolbar-btn {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Resize handle */
+.rich-text-resize {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 7px;
+  height: 7px;
+  cursor: nw-resize;
+}
+```
+
+## Accessibility implementation
+
+```jsx
+// Accessible Rich Text Editor with proper ARIA attributes
+<RichTextEditor
+  label="Project Description"
+  value={content}
+  onChange={setContent}
+  aria-label="Rich text editor for project description"
+  aria-describedby="description-help"
+  role="application"
+  aria-multiline="true"
+>
+  <div id="description-help">
+    Use the toolbar to format your text. Press Alt+F10 to focus the toolbar.
+  </div>
+</RichTextEditor>
+
+// Toolbar buttons with proper accessibility
+<button
+  className="toolbar-btn"
+  aria-label="Make text bold"
+  aria-pressed={isBoldActive}
+  onKeyDown={handleToolbarKeyDown}
+>
+  <BoldIcon />
+</button>
+```
+
+## Advanced features
+
+### Custom toolbar configuration
+
+```javascript
+// Configurable toolbar options
+const toolbarConfig = {
+  groups: [
+    {
+      name: 'basic',
+      items: ['bold', 'italic', 'underline']
+    },
+    {
+      name: 'lists',
+      items: ['bulletList', 'numberedList']
+    },
+    {
+      name: 'links',
+      items: ['link', 'unlink']
+    }
+  ]
+};
+
+// Advanced toolbar with custom buttons
+const customToolbarItems = [
+  {
+    name: 'highlight',
+    icon: HighlightIcon,
+    command: 'highlight',
+    tooltip: 'Highlight text'
+  },
+  {
+    name: 'code',
+    icon: CodeIcon,
+    command: 'code',
+    tooltip: 'Inline code'
+  }
+];
+```
+
+### Content validation patterns
+
+```javascript
+// Content validation utilities
+const validateRichTextContent = (content) => {
+  const errors = [];
+  
+  // Check for required content
+  const textContent = stripHTML(content);
+  if (!textContent.trim()) {
+    errors.push('Content is required');
+  }
+  
+  // Check length limits
+  if (textContent.length > 5000) {
+    errors.push('Content must be less than 5000 characters');
+  }
+  
+  // Validate HTML structure
+  if (!isValidHTML(content)) {
+    errors.push('Invalid formatting detected');
+  }
+  
+  return errors;
+};
+
+// Security sanitization
+const sanitizeContent = (content) => {
+  // Remove potentially dangerous HTML elements and attributes
+  return DOMPurify.sanitize(content, {
+    ALLOWED_TAGS: ['b', 'i', 'u', 'strong', 'em', 'ul', 'ol', 'li', 'a'],
+    ALLOWED_ATTR: ['href', 'target']
+  });
+};
+```
+
+## Resources
+
+- [View in Figma](https://www.figma.com/design/PbVpP4WeWhp1g8aqpKYAed/SAP-LeanIX-Web-UI-Kit?node-id=15682-4954)
+- Design tokens: Use system-defined colors and spacing for consistency  
+- Component status: Stable
+- Related patterns: Form validation, content management, collaborative editing
+
+  </Tab>
+</Tabs>
+
+<Note>
+  This component is part of the SAP LeanIX Web UI Kit design system and follows established patterns for enterprise applications. Always validate and sanitize rich text content for security and data integrity.
+</Note>

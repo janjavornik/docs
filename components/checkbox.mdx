@@ -11,6 +11,9 @@ Checkboxes allow users to select one or multiple items from a list of individual
   ![Checkbox component variants showing selected, unselected, and mixed states](https://www.figma.com/design/PbVpP4WeWhp1g8aqpKYAed/SAP-LeanIX-Web-UI-Kit?node-id=1546-12258)
 </Frame>
 
+<Tabs>
+  <Tab title="Usage">
+
 ## When to use
 
 Use checkboxes when you need to:
@@ -319,11 +322,112 @@ Alternatively, you can select children individually when the parent is not selec
 - **Toggle Switch**: For simple on/off settings
 - **Multi-select Dropdown**: For selecting from larger lists of options
 
-## Implementation notes
+  </Tab>
+  <Tab title="Code">
 
-<Info>
-  For implementation details, code examples, and framework-specific guidance, refer to your design system's component library documentation.
-</Info>
+## Implementation examples
+
+<CodeGroup>
+
+```html HTML
+<!-- Basic Checkbox -->
+<div class="checkbox-group">
+  <input type="checkbox" id="option1" class="checkbox">
+  <label for="option1">Send me email notifications</label>
+</div>
+
+<!-- Checkbox with mixed state -->
+<div class="checkbox-group">
+  <input type="checkbox" id="parent" class="checkbox" indeterminate>
+  <label for="parent">Select all items</label>
+</div>
+
+<!-- Checkbox Group -->
+<fieldset class="checkbox-fieldset">
+  <legend>Notification Preferences</legend>
+  <div class="checkbox-group">
+    <input type="checkbox" id="email" class="checkbox" checked>
+    <label for="email">Email notifications</label>
+  </div>
+  <div class="checkbox-group">
+    <input type="checkbox" id="sms" class="checkbox">
+    <label for="sms">SMS notifications</label>
+  </div>
+  <div class="checkbox-group">
+    <input type="checkbox" id="push" class="checkbox">
+    <label for="push">Push notifications</label>
+  </div>
+</fieldset>
+```
+
+```jsx React
+// Basic Usage
+<Checkbox 
+  checked={isChecked}
+  onChange={handleChange}
+  label="Send me email notifications"
+/>
+
+// Indeterminate State
+<Checkbox 
+  indeterminate={someSelected && !allSelected}
+  checked={allSelected}
+  onChange={handleSelectAll}
+  label="Select all items"
+/>
+
+// Checkbox Group
+<CheckboxGroup 
+  value={selectedValues}
+  onChange={setSelectedValues}
+  legend="Notification Preferences"
+>
+  <Checkbox value="email" label="Email notifications" />
+  <Checkbox value="sms" label="SMS notifications" />
+  <Checkbox value="push" label="Push notifications" />
+</CheckboxGroup>
+```
+
+```vue Vue
+<!-- Basic Usage -->
+<Checkbox 
+  v-model="emailNotifications"
+  label="Send me email notifications"
+/>
+
+<!-- Group with indeterminate parent -->
+<CheckboxGroup v-model="selectedItems">
+  <Checkbox 
+    :indeterminate="someSelected"
+    :checked="allSelected"
+    @change="toggleAll"
+    label="Select all"
+  />
+  <Checkbox 
+    v-for="item in items" 
+    :key="item.id"
+    :value="item.id"
+    :label="item.name"
+  />
+</CheckboxGroup>
+```
+
+</CodeGroup>
+
+## Component API
+
+### Props
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `checked` | `boolean` | `false` | Whether the checkbox is selected |
+| `indeterminate` | `boolean` | `false` | Mixed state for partial selections |
+| `disabled` | `boolean` | `false` | Disables the checkbox |
+| `label` | `string` | - | Text label for the checkbox |
+| `value` | `string \| number` | - | Value for form submission |
+| `onChange` | `function` | - | Change event handler |
+| `id` | `string` | - | HTML id attribute |
+| `name` | `string` | - | Form input name |
 
 ### States to implement
 
@@ -333,14 +437,180 @@ When implementing the checkbox component, ensure you support all three states:
 2. **Selected**: `checked={true}`
 3. **Indeterminate**: `indeterminate={true}` (typically set via JavaScript)
 
-### Event handling
+### CSS Classes
+
+```css
+/* Base checkbox styles */
+.checkbox {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #99A5BB;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  cursor: pointer;
+  position: relative;
+  margin-right: 8px;
+}
+
+/* Selected state */
+.checkbox:checked {
+  background-color: #0070F2;
+  border-color: #0070F2;
+}
+
+.checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  left: 2px;
+  top: -1px;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Indeterminate state */
+.checkbox:indeterminate {
+  background-color: #0070F2;
+  border-color: #0070F2;
+}
+
+.checkbox:indeterminate::after {
+  content: '−';
+  position: absolute;
+  left: 3px;
+  top: -2px;
+  color: #FFFFFF;
+  font-size: 14px;
+}
+
+/* Disabled state */
+.checkbox:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Focus state */
+.checkbox:focus {
+  outline: 2px solid #0070F2;
+  outline-offset: 2px;
+}
+
+/* Label styles */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.checkbox-group label {
+  font-family: '72', sans-serif;
+  font-size: 14px;
+  color: #2A303D;
+  cursor: pointer;
+}
+```
+
+## Event handling patterns
 
 ```javascript
-// Example event handler pattern
-handleCheckboxChange(event) {
-  const isChecked = event.target.checked;
-  // Update state accordingly
-}
+// Basic checkbox handler
+const handleCheckboxChange = (event) => {
+  const { checked, value } = event.target;
+  console.log(`Checkbox ${value} is ${checked ? 'checked' : 'unchecked'}`);
+};
+
+// Parent-child relationship handler
+const useCheckboxGroup = (items) => {
+  const [selectedItems, setSelectedItems] = useState([]);
+  
+  const allSelected = selectedItems.length === items.length;
+  const someSelected = selectedItems.length > 0;
+  
+  const handleSelectAll = (checked) => {
+    setSelectedItems(checked ? items.map(item => item.id) : []);
+  };
+  
+  const handleItemSelect = (itemId, checked) => {
+    setSelectedItems(prev => 
+      checked 
+        ? [...prev, itemId]
+        : prev.filter(id => id !== itemId)
+    );
+  };
+  
+  return {
+    selectedItems,
+    allSelected,
+    someSelected,
+    handleSelectAll,
+    handleItemSelect
+  };
+};
+```
+
+## Accessibility implementation
+
+```jsx
+// Accessible checkbox group
+<fieldset role="group" aria-labelledby="preferences-legend">
+  <legend id="preferences-legend">Notification Preferences</legend>
+  
+  <Checkbox
+    checked={emailEnabled}
+    onChange={(checked) => setEmailEnabled(checked)}
+    aria-describedby="email-help"
+    label="Email notifications"
+  />
+  <div id="email-help" className="help-text">
+    Receive updates and alerts via email
+  </div>
+  
+  <Checkbox
+    checked={smsEnabled}
+    onChange={(checked) => setSmsEnabled(checked)}
+    aria-describedby="sms-help"
+    label="SMS notifications"
+  />
+  <div id="sms-help" className="help-text">
+    Receive urgent alerts via SMS
+  </div>
+</fieldset>
+```
+
+## Form integration
+
+```javascript
+// React Hook Form integration
+import { useForm, Controller } from 'react-hook-form';
+
+const MyForm = () => {
+  const { control, handleSubmit, watch } = useForm();
+  
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        name="acceptTerms"
+        control={control}
+        rules={{ required: "You must accept the terms" }}
+        render={({ field, fieldState }) => (
+          <div>
+            <Checkbox
+              checked={field.value}
+              onChange={field.onChange}
+              label="I accept the terms and conditions"
+            />
+            {fieldState.error && (
+              <span className="error">{fieldState.error.message}</span>
+            )}
+          </div>
+        )}
+      />
+      
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
 ```
 
 ## Resources
@@ -348,6 +618,9 @@ handleCheckboxChange(event) {
 - [View in Figma](https://www.figma.com/design/PbVpP4WeWhp1g8aqpKYAed/SAP-LeanIX-Web-UI-Kit?node-id=1546-12258)
 - Design tokens: Use system-defined colors and spacing for consistency
 - Component status: Stable
+
+  </Tab>
+</Tabs>
 
 <Note>
   This component is part of the SAP LeanIX Web UI Kit design system and follows established patterns for enterprise applications.

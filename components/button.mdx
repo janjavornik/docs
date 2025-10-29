@@ -11,6 +11,9 @@ Buttons allow users to perform an action or navigate to another page. They have 
   ![Button component variants showcasing different sizes and styles](https://www.figma.com/design/PbVpP4WeWhp1g8aqpKYAed/SAP-LeanIX-Web-UI-Kit?node-id=1487-11654)
 </Frame>
 
+<Tabs>
+  <Tab title="Usage">
+
 ## When to use
 
 Use buttons to help users:
@@ -262,17 +265,207 @@ Buttons respond to user interaction with visual feedback through different state
 - **IconButton**: Simplified button component optimized for icon-only use cases
 - **Link Button**: Button styled as a link for lower-emphasis actions
 
-## Implementation notes
+  </Tab>
+  <Tab title="Code">
 
-<Info>
-  For implementation details, code examples, and framework-specific guidance, refer to your design system's component library documentation.
-</Info>
+## Implementation examples
+
+<CodeGroup>
+
+```html HTML
+<!-- Primary Button -->
+<button class="btn btn-primary">Submit Form</button>
+
+<!-- Secondary Button -->
+<button class="btn btn-secondary">Cancel</button>
+
+<!-- Button with Icon -->
+<button class="btn btn-primary">
+  <svg class="btn-icon">...</svg>
+  Refresh Data
+</button>
+
+<!-- Loading State -->
+<button class="btn btn-primary" disabled>
+  <div class="btn-spinner"></div>
+  Processing...
+</button>
+```
+
+```jsx React
+// Basic Usage
+<Button variant="primary" size="large">
+  Submit Form
+</Button>
+
+// With Icon
+<Button variant="primary" icon="refresh">
+  Refresh Data
+</Button>
+
+// Loading State
+<Button variant="primary" loading>
+  Processing...
+</Button>
+
+// Disabled State
+<Button variant="secondary" disabled>
+  Not Available
+</Button>
+```
+
+```vue Vue
+<!-- Basic Usage -->
+<Button variant="primary" size="large">
+  Submit Form
+</Button>
+
+<!-- With Icon and Loading -->
+<Button 
+  :variant="primary" 
+  :icon="refreshIcon"
+  :loading="isLoading"
+  @click="handleSubmit"
+>
+  {{ isLoading ? 'Processing...' : 'Submit Form' }}
+</Button>
+```
+
+</CodeGroup>
+
+## Component API
+
+### Props
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `variant` | `'primary' \| 'secondary' \| 'outline' \| 'ai'` | `'primary'` | Visual style variant |
+| `size` | `'small' \| 'large'` | `'large'` | Button size |
+| `icon` | `string \| ReactNode` | - | Icon to display |
+| `loading` | `boolean` | `false` | Shows loading state |
+| `disabled` | `boolean` | `false` | Disables interaction |
+| `onClick` | `function` | - | Click handler |
+| `type` | `'button' \| 'submit' \| 'reset'` | `'button'` | HTML button type |
+
+### CSS Classes
+
+```css
+/* Base button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-family: '72', sans-serif;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Size variants */
+.btn--small {
+  padding: 6px 12px;
+  font-size: 14px;
+  min-width: 64px;
+}
+
+.btn--large {
+  padding: 10px 20px;
+  font-size: 16px;
+  min-width: 72px;
+}
+
+/* Style variants */
+.btn--primary {
+  background-color: #0070F2;
+  color: #FFFFFF;
+}
+
+.btn--primary:hover {
+  background-color: #0057D2;
+}
+
+.btn--secondary {
+  background-color: #F0F2F5;
+  color: #2A303D;
+}
+
+.btn--outline {
+  background-color: transparent;
+  border-color: #99A5BB;
+  color: #2A303D;
+}
+
+.btn--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn--loading {
+  cursor: not-allowed;
+}
+```
+
+## Accessibility implementation
+
+```jsx
+// Accessible button with proper ARIA attributes
+<Button
+  variant="primary"
+  loading={isSubmitting}
+  disabled={!isFormValid}
+  aria-label={isSubmitting ? "Submitting form" : "Submit form"}
+  aria-describedby="form-errors"
+>
+  {isSubmitting ? "Submitting..." : "Submit Form"}
+</Button>
+
+// Icon-only button with tooltip
+<Button
+  variant="outline"
+  icon="edit"
+  aria-label="Edit item"
+  title="Edit this item"
+/>
+```
+
+## State management patterns
+
+```javascript
+// React Hook example
+const useButtonState = (onSubmit) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  const handleClick = async () => {
+    setIsLoading(true);
+    try {
+      await onSubmit();
+    } catch (error) {
+      console.error('Submit failed:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return {
+    isLoading,
+    isDisabled,
+    handleClick
+  };
+};
+```
 
 ## Resources
 
 - [View in Figma](https://www.figma.com/design/PbVpP4WeWhp1g8aqpKYAed/SAP-LeanIX-Web-UI-Kit?node-id=1487-11654)
 - Design tokens: Use system-defined colors and spacing for consistency
 - Component status: Stable
+
+  </Tab>
+</Tabs>
 
 <Note>
   This component is part of the SAP LeanIX Web UI Kit design system and follows established patterns for enterprise applications.
